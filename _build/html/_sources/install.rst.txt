@@ -1,0 +1,42 @@
+.. installation_guide
+
+==========================================
+Installation Guide
+==========================================
+
+EIT é uma plataforma open-source para resolução do problema direto e inverso de tomografia por impedância elétrica.
+Esse software é construído a partir de algumas bibliotecas básicas.
+
+`Numpy <https://numpy.org>`_
+
+`Matplotlib <https://matplotlib.org>`_
+
+`FEniCS  <https://fenicsproject.org>`_ 
+
+Instalando em seu computador
+-------------------------------
+
+Antes de iniciar a utilização dos códigos é necessário a instalação das bibliotecas comentadas.
+Caso possua Windows 10, a instalação do FEniCS é feita em um subsistema Linux do Windows 10 que pode ser realizado pelo tutorial contido no próprio site do FEniCs.
+
+Além disso, em primeiro momento, recomendados a utilização de outra ferramenta para o início de sua jornada.
+Como o subsistema Linux não possui parte visual é possível instalar Jupyter Notebook para facilitar no processo e sendo uma ferramenta ótima para o desenvolvimento inicial.
+
+
+`Jupyter  <https://jupyter.org/index.html>`_ 
+
+Sem instalações
+-------------------------------
+
+Caso não queira realizar a instalação de nenhuma biblioteca ou esteja só de passagem, nossos códigos também estão disponíveis no Colab da Google. Para sua utilização basta entrar no link a seguir e terá acesso a pasta contendo todos os principais arquivos.
+Ao entrar no código será solicitado a instalação do FEniCS e a importação de nossos módulos, após esse simples processo tudo já estará funcionando.
+
+
+Códigos
+--------------------------------
+
+Os códigos ainda não estão disponíveis, por favor aguarde.
+
+
+
+

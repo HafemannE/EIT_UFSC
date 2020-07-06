@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick-Start &mdash; EIT w documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Creating mesh and electrodes." href="tutorial_mymesh.html" />
+    <link rel="prev" title="Tutorial" href="../tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> EIT
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Installation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">EIT Complete Electrodes Model:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorial</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Quick-Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#importing">Importing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#electrodes">Electrodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mesh">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gamma-function">Gamma Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foward-problem">Foward Problem</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_mymesh.html">Creating mesh and electrodes.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_createfunc.html">Creating Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_current.html">Current Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_foward.html">Foward Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_inverse.html">Inverse Problem</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">EIT Continous Model:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../EIT_CONT/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../EIT_CONT/tutorial.html">Tutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">EIT</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../tutorial.html">Tutorial</a> &raquo;</li>
+        
+      <li>Quick-Start</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/EIT_CEM/tutorial/tutorial_quickstart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quick-start">
+<h1>Quick-Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>This demo is implemented in a single Python file.</p>
+<p>This demo illustrates how to:</p>
+<ul class="simple">
+<li><p>Create mesh based in eletrodes</p></li>
+<li><p>Create functions defined in cells.</p></li>
+<li><p>Define a list of currents used in the experiment.</p></li>
+<li><p>Solve Foward Problem.</p></li>
+<li><p>Solve inverse Problem:</p></li>
+</ul>
+<div class="section" id="importing">
+<h2>Importing<a class="headerlink" href="#importing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Auxiliar modules</span>
+<span class="kn">from</span> <span class="nn">dolfin</span> <span class="kn">import</span><span class="o">*</span>
+<span class="kn">from</span> <span class="nn">mshr</span> <span class="kn">import</span><span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">fenics</span> <span class="kn">import</span><span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="c1">#My modules</span>
+<span class="kn">from</span> <span class="nn">module1_mesh</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">module2_foward</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">module3_inverse</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">module4_auxiliar</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="electrodes">
+<h2>Electrodes<a class="headerlink" href="#electrodes" title="Permalink to this headline">¶</a></h2>
+<p>O passo inicial para o modelo de eletrodos é definir a região de eletrodos. Para este fim temos a função
+<code class="xref py py-func docutils literal notranslate"><span class="pre">electrodes_position()</span></code> para auxiliar no processo. Espera-se que o dominio seja um círculo, o qual
+é necessário saber o raio. Além disso, pergunta-se o número de eletrodos(L) e a área percentual (per_cober) por eles ocupados.
+Então os eletrodos serão distribuidos igualmente espaçados na fronteira. Ainda é possível rotacionar a solução
+atráves do argumento rotate.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Definições Básicas do espaço.&quot;</span>
+<span class="n">r</span><span class="o">=</span><span class="mi">1</span>            <span class="c1">#Radius circle</span>
+<span class="n">L</span><span class="o">=</span><span class="mi">16</span>           <span class="c1">#Numero de eletrodos</span>
+<span class="n">per_cober</span><span class="o">=</span><span class="mf">0.5</span>  <span class="c1">#Porcentagem da área completa</span>
+<span class="n">rotate</span><span class="o">=</span><span class="mi">0</span>       <span class="c1">#Rotação da solução inicial</span>
+
+<span class="n">ele_pos</span><span class="o">=</span><span class="n">electrodes_position</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">per_cober</span><span class="p">,</span> <span class="n">rotate</span><span class="p">)</span> <span class="c1">#Retorna a posição theta de cada eletrodo</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mesh">
+<h2>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h2>
+<p>Segundo passo importante é definir a malha a ser trabalhada tanto para o problema direto e inverso. Essa malha
+é construida em função dos eletrodos. Define-se o refinamento da malha (refine_n), a quantidade de vértices nos eletrodos (n_in)
+e a quantidade de vértices no gaps (n_out). Através da malha gerada, usa-se a função refine() nativa do FENICS
+para realizar o refinamento para a malha do problema direto.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">refine_n</span><span class="o">=</span><span class="mi">8</span> <span class="c1">#Refinamento da malha</span>
+<span class="n">n_in</span><span class="o">=</span><span class="mi">6</span>     <span class="c1">#Numero de vertices no eletrodo</span>
+<span class="n">n_out</span><span class="o">=</span><span class="mi">3</span>    <span class="c1">#Numero de vertices nos gaps, as vezes é necessário.</span>
+
+<span class="n">mesh_inverse</span><span class="o">=</span><span class="n">MyMesh</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">refine_n</span><span class="p">,</span> <span class="n">n_in</span><span class="o">=</span><span class="n">n_in</span><span class="p">,</span> <span class="n">n_out</span><span class="o">=</span><span class="n">n_out</span><span class="p">,</span> <span class="n">electrodes_obj</span><span class="o">=</span><span class="n">ele_pos</span><span class="p">)</span>
+<span class="n">mesh_direct</span><span class="o">=</span><span class="n">refine</span><span class="p">(</span><span class="n">mesh_inverse</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/mesh5.png"><img alt="../../_images/mesh5.png" src="../../_images/mesh5.png" style="width: 480.0px; height: 242.25px;" /></a>
+</div>
+<div class="section" id="gamma-function">
+<h2>Gamma Function<a class="headerlink" href="#gamma-function" title="Permalink to this headline">¶</a></h2>
+<p>Terceiro passo consiste na definição de uma função de condutividade elétrica em função dos elementos da malha.
+Para isso usa-se a função <code class="xref py py-func docutils literal notranslate"><span class="pre">GammaCircle()</span></code> para criar um circulo deslocado da origem de raio 0.5, onde a condutividade
+dentro do círculo é 3.0 e fora dele 1.0. A função anteriormente citada apenas cria um vetor onde cada entrada
+representA o valor da célula em um elemento, a função <code class="xref py py-func docutils literal notranslate"><span class="pre">CellFunction()</span></code> é responsável por transformar em uma Expression,
+sendo utilizada como uma função no FENICS para resolver o sistema variacional, ou seja transformamos um vetor em uma função.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Definição da resposta Gamma0&quot;</span>
+<span class="c1">#GammaCircle cria a gamma nos elementos e retorna um vetor</span>
+<span class="n">ValuesCells0</span><span class="o">=</span><span class="n">GammaCircle</span><span class="p">(</span><span class="n">mesh_direct</span><span class="p">,</span><span class="mf">3.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">);</span> <span class="c1">#malha, cond_interna, cond_externa, raio, certerx, cerntery</span>
+<span class="n">gamma0</span><span class="o">=</span><span class="n">CellFunction</span><span class="p">(</span><span class="n">mesh_direct</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">ValuesCells0</span><span class="p">);</span>          <span class="c1">#Pega o vetor e transforma em uma função</span>
+</pre></div>
+</div>
+<p>A seguir a solução reconstruida no espaço DG.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Plot&quot;</span>
+<span class="n">V_DG</span><span class="o">=</span><span class="n">FiniteElement</span><span class="p">(</span><span class="s1">&#39;DG&#39;</span><span class="p">,</span><span class="n">mesh_direct</span><span class="o">.</span><span class="n">ufl_cell</span><span class="p">(),</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">gamma_direct</span><span class="o">=</span><span class="n">plot_figure</span><span class="p">(</span><span class="n">mesh_direct</span><span class="p">,</span> <span class="n">V_DG</span><span class="p">,</span> <span class="n">gamma0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/gamma8.png"><img alt="../../_images/gamma8.png" src="../../_images/gamma8.png" style="width: 336.0px; height: 277.5px;" /></a>
+</div>
+<div class="section" id="foward-problem">
+<h2>Foward Problem<a class="headerlink" href="#foward-problem" title="Permalink to this headline">¶</a></h2>
+<p>Dado as definições anteriores, já é possível seguir para o problema direto. Basta definir o espaço de funções utilizadas, aqui usamos polinômios de lagrange (CG) de primeira
+ordem, número de experimentos (l), a impedancia dos eletrodos (z) e as correntes utilizadas (I_all).:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Foward Problem&quot;</span>
+<span class="c1">#Definições básicas</span>
+<span class="n">VD</span><span class="o">=</span><span class="n">FiniteElement</span><span class="p">(</span><span class="s1">&#39;CG&#39;</span><span class="p">,</span><span class="n">mesh_direct</span><span class="o">.</span><span class="n">ufl_cell</span><span class="p">(),</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Espaço da solução</span>
+<span class="n">l</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>                                        <span class="c1">#Numero de experimentos</span>
+<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">L</span><span class="p">)</span><span class="o">*</span><span class="mf">0.025</span>                         <span class="c1">#Impedancia de cada eletrodo</span>
+<span class="n">I_all</span><span class="o">=</span><span class="n">current_method</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">l</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>             <span class="c1">#Geração das correntes</span>
+</pre></div>
+</div>
+<p>A função <code class="xref py py-func docutils literal notranslate"><span class="pre">current_method()</span></code> retorna uma array de arrays contendo os valores das correntes nos eletrodos.
+Existem outras correntes e elas podem ser verificadas na documentação. Caso queira outro tipo de corrente para o experimento,
+basta obedecer o mesmo padrão na hora de fornecer as correntes. Se for só um experimento, só é necessário fornecer uma array simples.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">I_all</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;</span><span class="p">[</span><span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">]),</span>
+   <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">])]</span>
+</pre></div>
+</div>
+<p>Já com as definições do básicas do problema direto, já é possível resolve-lo. Cria-se o objeto do problema direto
+com a classe <code class="xref py py-class docutils literal notranslate"><span class="pre">FowardProblem</span></code> fornecendo informações como a malha, posição dos eletrodos e as impedancias.
+Após isso usa-se a função .solver_foward() para resolver o problema, usando como argumento o espaço de funções(VD), a função de conduvidade (gamma0),
+as correntes elétricas (I_all) e o número de experimentos (l).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solver</span>
+<span class="n">DirectProblem</span><span class="o">=</span><span class="n">FowardProblem</span><span class="p">(</span><span class="n">mesh_direct</span><span class="p">,</span>  <span class="n">ele_pos</span><span class="p">,</span>  <span class="n">z</span><span class="p">)</span>
+<span class="n">list_u0</span><span class="p">,</span> <span class="n">list_U0</span> <span class="o">=</span> <span class="n">DirectProblem</span><span class="o">.</span><span class="n">solve_foward</span><span class="p">(</span><span class="n">VD</span><span class="p">,</span> <span class="n">gamma0</span><span class="p">,</span> <span class="n">I_all</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="n">list_U0</span> <span class="o">=</span> <span class="n">DirectProblem</span><span class="o">.</span><span class="n">sol_asarray</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As soluções no domínio podem ser plotadas com os comandos a seguir:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">list_u0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/plotu.png"><img alt="../../_images/plotu.png" src="../../_images/plotu.png" style="width: 570.0px; height: 538.5px;" /></a>
+<p>O valor dos potenciais nos eletrodos está contido no vetor list_U0.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="nb">print</span><span class="p">(</span><span class="n">list_U0</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">L</span><span class="p">])</span>
+   <span class="o">&gt;&gt;&gt;</span><span class="p">[</span> <span class="mf">1.0842557</span>   <span class="mf">0.32826713</span>  <span class="mf">0.19591977</span>  <span class="mf">0.13158264</span>  <span class="mf">0.06214628</span> <span class="o">-</span><span class="mf">0.03412964</span>
+<span class="o">-</span><span class="mf">0.17331413</span> <span class="o">-</span><span class="mf">0.40308837</span> <span class="o">-</span><span class="mf">1.18449889</span> <span class="o">-</span><span class="mf">0.42369776</span> <span class="o">-</span><span class="mf">0.21120216</span> <span class="o">-</span><span class="mf">0.08218106</span>
+ <span class="mf">0.01735219</span>  <span class="mf">0.10789938</span>  <span class="mf">0.20976791</span>  <span class="mf">0.37492101</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>O problema inverso é simples de resolver quando já se possui os eletrodos, a malha, impedâncias e correntes.
+Basta fornecer um vetor contendo os valores nos eletrodos (list_U0) ao objeto <code class="xref py py-class docutils literal notranslate"><span class="pre">InverseProblem</span></code> e chamar a função
+solve_inverse().</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">InverseObject</span><span class="o">=</span><span class="n">InverseProblem</span><span class="p">(</span><span class="n">mesh_inverse</span><span class="p">,</span>  <span class="n">ele_pos</span><span class="p">,</span>  <span class="n">z</span><span class="p">,</span> <span class="n">list_U0</span><span class="p">,</span> <span class="n">I_all</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="n">InverseObject</span><span class="o">.</span><span class="n">solve_inverse</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>O resultado pode ser extraido utilizando .gamma_k no objeto. A seguir, o plot da solução.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gamma_k</span><span class="o">=</span><span class="n">InverseObject</span><span class="o">.</span><span class="n">gamma_k</span>
+<span class="n">V_DG</span><span class="o">=</span><span class="n">FiniteElement</span><span class="p">(</span><span class="s1">&#39;DG&#39;</span><span class="p">,</span><span class="n">mesh_inverse</span><span class="o">.</span><span class="n">ufl_cell</span><span class="p">(),</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plot_figure</span><span class="p">(</span><span class="n">mesh_inverse</span><span class="p">,</span> <span class="n">V_DG</span><span class="p">,</span> <span class="n">gamma_k</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/gamma8.png"><img alt="../../_images/gamma8.png" src="../../_images/gamma8.png" style="width: 336.0px; height: 277.5px;" /></a>
+<a class="reference internal image-reference" href="../../_images/gamma_ans.png"><img alt="../../_images/gamma_ans.png" src="../../_images/gamma_ans.png" style="width: 320.25px; height: 281.25px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial_mymesh.html" class="btn btn-neutral float-right" title="Creating mesh and electrodes." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Eduardo Hafemann
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
