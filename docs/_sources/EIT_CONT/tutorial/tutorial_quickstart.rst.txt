@@ -14,8 +14,6 @@ This demo illustrates how to:
 * Solve Foward Problem.
 * Solve inverse Problem
 
-::
-
 
 Importing
 ***************
@@ -65,7 +63,7 @@ Gamma Function
     gamma_direct=plot_figure(mesh_direct, V_DG, gamma0, name="Gamma"); #Just plot my gamma0
 
 
-.. image:: gamma.png
+.. image:: quickstart/gamma.png
    :scale: 75 %
 
 

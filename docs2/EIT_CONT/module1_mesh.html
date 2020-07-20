@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module 1 - Mesh &mdash; EIT w documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module 2 - Foward" href="module2_foward.html" />
+    <link rel="prev" title="Documentation" href="documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> EIT
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Installation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">EIT Complete Electrodes Model:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../EIT_CEM/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../EIT_CEM/tutorial.html">Tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">EIT Continous Model:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="documentation.html">Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Module 1 - Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module2_foward.html">Module 2 - Foward</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module3_inverse.html">Module 3 - Inverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module4_auxiliar.html">Module 4 - Auxiliar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EIT</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="documentation.html">Documentation</a> &raquo;</li>
+        
+      <li>Module 1 - Mesh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/EIT_CONT/module1_mesh.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-module1_mesh_cont">
+<span id="module-1-mesh"></span><h1>Module 1 - Mesh<a class="headerlink" href="#module-module1_mesh_cont" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="module1_mesh_cont.MyMesh">
+<code class="sig-prename descclassname">module1_mesh_cont.</code><code class="sig-name descname">MyMesh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">r</span></em>, <em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">n_vertex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#module1_mesh_cont.MyMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that generate the mesh based in number of vertex in boundary. It is extremely important that
+foward mesh and inverse mesh have vertex in commum, so this routine generate both, mesh_direct is a refiniment from mesh_inverse.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>float.</em>) – Circle Radius</p></li>
+<li><p><strong>n</strong> (<em>int.</em>) – Refinament parameter</p></li>
+<li><p><strong>n_vertex</strong> (<em>int</em>) – Vertices number in boundary</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dolfin.cpp.mesh.Mesh</span></code></p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_inverse</span><span class="p">,</span> <span class="n">mesh_direct</span><span class="o">=</span><span class="n">MyMesh</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">n_vertex</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="../_images/mesh6.png"><img alt="../_images/mesh6.png" src="../_images/mesh6.png" style="width: 463.5px; height: 225.0px;" /></a>
+</dd></dl>
+
+<dl class="py function">
+<dt id="module1_mesh_cont.getBoundaryVertex">
+<code class="sig-prename descclassname">module1_mesh_cont.</code><code class="sig-name descname">getBoundaryVertex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">u</span></em><span class="sig-paren">)</span><a class="headerlink" href="#module1_mesh_cont.getBoundaryVertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Functions that calculate the values of a function on boundary and return a array with that.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dolfin.cpp.mesh.Mesh</span></code>) – Mesh where u is defined.</p></li>
+<li><p><strong>u</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dolfin.cpp.mesh.Function</span></code>) – Function that you want compute vertex values on the boundary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>array</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u_boundary</span><span class="o">=</span><span class="n">getBoundaryVertex</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="module1_mesh_cont.getBoundaryVertexTwoMesh">
+<code class="sig-prename descclassname">module1_mesh_cont.</code><code class="sig-name descname">getBoundaryVertexTwoMesh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh_inverse</span></em>, <em class="sig-param"><span class="n">mesh_direct</span></em>, <em class="sig-param"><span class="n">u</span></em>, <em class="sig-param"><span class="n">u0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#module1_mesh_cont.getBoundaryVertexTwoMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Functions that calculate the values of two function on the boundary and select the vertex in commum, then return an array with it.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mesh_inverse</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dolfin.cpp.mesh.Mesh</span></code>) – Coarsed mesh where Function u is defined.</p></li>
+<li><p><strong>mesh_inverse</strong> – Refined mesh where Function u0 is defined.</p></li>
+<li><p><strong>u</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dolfin.cpp.mesh.Function</span></code>) – Function that you want compute vertex values on the boundary.`</p></li>
+<li><p><strong>u0</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dolfin.cpp.mesh.Function</span></code>) – Function that you want compute vertex values on the boundary.`</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(array) u_boundary, u0_boundary, vertex_index.</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u_boundary</span><span class="p">,</span> <span class="n">u0_boundary</span><span class="p">,</span> <span class="n">vertex_index</span><span class="o">=</span><span class="n">getBoundaryVertexTwoMesh</span><span class="p">(</span><span class="n">mesh_inverse</span><span class="p">,</span> <span class="n">mesh_direct</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="module2_foward.html" class="btn btn-neutral float-right" title="Module 2 - Foward" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="documentation.html" class="btn btn-neutral float-left" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Eduardo Hafemann
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
