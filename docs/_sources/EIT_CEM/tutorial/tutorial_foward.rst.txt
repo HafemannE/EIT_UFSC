@@ -10,19 +10,8 @@ This demo illustrates how to:
 
 * How to use :class:`FowardProblem`.::
 
-    #Auxiliar modules
-    from dolfin import*
-    from mshr import*
-    import numpy as np
-    from fenics import*
-    import matplotlib.pyplot as plt
-
-
-    #My modules
-    from module1_mesh import *
-    from module2_foward import *
-    from module3_inverse import *
-    from module4_auxiliar import *
+    from EIT_CEM_app import *
+    %matplotlib inline
 
 
 Mesh
@@ -32,9 +21,8 @@ Mesh
 
     "Electrodes and Mesh"
     ele_pos=electrodes_position(L=16, per_cober=0.5, rotate=0)
-    mesh_direct=MyMesh(r=1, n=20, n_in=60, n_out=8, electrodes_obj=ele_pos)
-    plot(mesh_direct);
-
+    mesh_foward=MyMesh(r=1, n=10*2, n_in=8*10, n_out=3*2, electrodes_obj=ele_pos)
+    
 .. image:: foward/mesh.png
    :scale: 75 %
 
@@ -44,12 +32,12 @@ Defining Gamma function
 ::
 
     "Gamma function"
-    ValuesCells0=GammaCircle(mesh_direct,3.0,1.0,0.50, 0.25, 0.25);
-    gamma0=CellFunction(mesh_direct, values=ValuesCells0)
+    ValuesCells0=GammaCircle(mesh_foward,3.0,1.0,0.50, 0.25, 0.25);
+    gamma0=CellFunction(mesh_foward, values=ValuesCells0)
 
     "Plot"
-    V_DG=FiniteElement('DG',mesh_direct.ufl_cell(),0)
-    gamma_direct=plot_figure(mesh_direct, V_DG, gamma0, name="Gamma");
+    V_DG=FiniteElement('DG',mesh_foward.ufl_cell(),0)
+    gamma_foward=plot_figure(mesh_foward, V_DG, gamma0, name="Gamma");
     
 .. image:: foward/gamma.png
    :scale: 75 %
@@ -61,13 +49,14 @@ Foward Problem
 ::
 
     "Foward Problem"
-    VD=FiniteElement('CG',mesh_direct.ufl_cell(),1) #Lagrange pol. degree 1
+    L=16
+    VD=FiniteElement('CG',mesh_foward.ufl_cell(),1) #Lagrange pol. degree 1
     l=int(L)                                        #Measurements number.
-    z=np.ones(L)*0.025                              #Impedance
-    I_all=current_method(L,l, method=2)             #Current pattern
+    z=np.ones(L)*0.025E-5                           #Impedance
+    I_all=current_method(L,l, method=2, value=1)    #Current pattern
 
     #Solver
-    FowardObject=FowardProblem(mesh_direct,  ele_pos,  z)
+    FowardObject=FowardProblem(mesh_foward,  ele_pos,  z)
     list_u0, list_U0 = FowardObject.solve_foward(VD, gamma0, I_all, l)
     list_U0 = FowardObject.sol_asarray()
 
@@ -81,8 +70,8 @@ Boundary plot
 ::
 
     index=1
-    u_data=getBoundaryVertex(mesh_direct, list_u0[index]);
-    data_u0=plot_boundary(mesh_direct, data=u_data, name='boundary u', line=0);
+    u_data=getBoundaryVertex(mesh_foward, list_u0[index]);
+    data_u0=plot_boundary(mesh_foward, data=u_data, name='boundary u', line=0);
 
 .. image:: foward/boundaryu.png
    :scale: 75 %
@@ -116,44 +105,44 @@ Complete Electrode models hyphotesis
     >>> FowardObject.verify_solution_values(I_all, gamma0, sol_index=0, method=1)
 
         Current values
-        Calculated: 0.9315 Expected: 1.0
-        Calculated: -0.9286 Expected: -1.0
+        Calculated: 0.8323 Expected: 1.0
+        Calculated: -0.8028 Expected: -1.0
         Calculated: -0.0019 Expected: 0.0
-        Calculated: -0.0002 Expected: 0.0
+        Calculated: -0.0012 Expected: 0.0
+        Calculated: -0.0004 Expected: 0.0
         Calculated: -0.0001 Expected: 0.0
-        Calculated: -0.0 Expected: 0.0
-        Calculated: -0.0 Expected: 0.0
-        Calculated: 0.0 Expected: 0.0
-        Calculated: -0.0 Expected: 0.0
-        Calculated: 0.0 Expected: 0.0
-        Calculated: 0.0 Expected: 0.0
-        Calculated: 0.0 Expected: 0.0
         Calculated: 0.0001 Expected: 0.0
         Calculated: 0.0001 Expected: 0.0
-        Calculated: 0.0004 Expected: 0.0
-        Calculated: 0.0021 Expected: 0.0
-        Soma das correntes calculada:  0.003561650907973156
+        Calculated: 0.0001 Expected: 0.0
+        Calculated: 0.0002 Expected: 0.0
+        Calculated: 0.0 Expected: 0.0
+        Calculated: 0.0001 Expected: 0.0
+        Calculated: -0.0002 Expected: 0.0
+        Calculated: 0.0005 Expected: 0.0
+        Calculated: 0.0012 Expected: 0.0
+        Calculated: 0.0074 Expected: 0.0
+        Soma das correntes calculada:  0.03517066018683186
 
 ::
 
     >>> FowardObject.verify_solution_values(I_all, gamma0, sol_index=0, method=2)
         Potential values
-        Calculated: 0.7395 Expected: 0.74827
-        Calculated: -0.68304 Expected: -0.69219
-        Calculated: -0.11485 Expected: -0.11461
-        Calculated: -0.0627 Expected: -0.06268
-        Calculated: -0.04549 Expected: -0.04548
-        Calculated: -0.03548 Expected: -0.03547
-        Calculated: -0.02806 Expected: -0.02805
-        Calculated: -0.02175 Expected: -0.02175
-        Calculated: -0.01582 Expected: -0.01582
-        Calculated: -0.00974 Expected: -0.00974
-        Calculated: -0.00295 Expected: -0.00295
-        Calculated: 0.00535 Expected: 0.00534
-        Calculated: 0.01663 Expected: 0.01662
-        Calculated: 0.03424 Expected: 0.03422
-        Calculated: 0.06781 Expected: 0.06776
-        Calculated: 0.15681 Expected: 0.15654
+        Calculated: 0.58677 Expected: 0.58677
+        Calculated: -0.51934 Expected: -0.51934
+        Calculated: -0.11312 Expected: -0.11312
+        Calculated: -0.06419 Expected: -0.06419
+        Calculated: -0.04701 Expected: -0.04701
+        Calculated: -0.03692 Expected: -0.03692
+        Calculated: -0.02935 Expected: -0.02935
+        Calculated: -0.02291 Expected: -0.02291
+        Calculated: -0.01683 Expected: -0.01683
+        Calculated: -0.01057 Expected: -0.01057
+        Calculated: -0.0036 Expected: -0.0036
+        Calculated: 0.00492 Expected: 0.00492
+        Calculated: 0.01642 Expected: 0.01642
+        Calculated: 0.03434 Expected: 0.03434
+        Calculated: 0.06799 Expected: 0.06799
+        Calculated: 0.15339 Expected: 0.15339
         
 Plot solutions
 ----------------------

@@ -1,0 +1,182 @@
+.. tutorial
+
+Quick-Start
+=========================================
+
+
+This demo is implemented in a single Python file.
+
+This demo illustrates how to:
+
+* Create mesh based in eletrodes
+* Create functions defined in cells.
+* Define a list of currents used in the experiment.
+* Solve Foward Problem.
+* Solve inverse Problem::
+
+
+Importing
+***************
+
+::
+
+    #Auxiliar modules
+    from dolfin import*
+    from mshr import*
+    import numpy as np
+    from fenics import*
+    import matplotlib.pyplot as plt
+
+
+    #My modules
+    from module1_mesh import *
+    from module2_foward import *
+    from module3_inverse import *
+    from module4_auxiliar import *
+
+
+Electrodes
+***************
+
+O passo inicial para o modelo de eletrodos é definir a região de eletrodos. Para este fim temos a função
+:func:`electrodes_position` para auxiliar no processo. Espera-se que o dominio seja um círculo, o qual
+é necessário saber o raio. Além disso, pergunta-se o número de eletrodos(L) e a área percentual (per_cober) por eles ocupados.
+Então os eletrodos serão distribuidos igualmente espaçados na fronteira. Ainda é possível rotacionar a solução
+atráves do argumento rotate.::
+
+    "Definições Básicas do espaço."
+    r=1            #Radius circle
+    L=16           #Numero de eletrodos
+    per_cober=0.5  #Porcentagem da área completa
+    rotate=0       #Rotação da solução inicial
+
+    ele_pos=electrodes_position(L, per_cober, rotate) #Retorna a posição theta de cada eletrodo
+
+
+Mesh
+***************
+
+Segundo passo importante é definir a malha a ser trabalhada tanto para o problema direto e inverso. Essa malha
+é construida em função dos eletrodos. Define-se o refinamento da malha (refine_n), a quantidade de vértices nos eletrodos (n_in)
+e a quantidade de vértices no gaps (n_out). Através da malha gerada, usa-se a função refine() nativa do FENICS
+para realizar o refinamento para a malha do problema direto.::
+
+    refine_n=8 #Refinamento da malha
+    n_in=6     #Numero de vertices no eletrodo
+    n_out=3    #Numero de vertices nos gaps, as vezes é necessário.
+
+    mesh_inverse=MyMesh(r=r, n=refine_n, n_in=n_in, n_out=n_out, electrodes_obj=ele_pos)
+    mesh_direct=refine(mesh_inverse)
+
+.. image:: mesh.png
+   :scale: 75 %
+
+
+Gamma Function
+***************
+
+Terceiro passo consiste na definição de uma função de condutividade elétrica em função dos elementos da malha.
+Para isso usa-se a função :func:`GammaCircle` para criar um circulo deslocado da origem de raio 0.5, onde a condutividade
+dentro do círculo é 3.0 e fora dele 1.0. A função anteriormente citada apenas cria um vetor onde cada entrada
+representA o valor da célula em um elemento, a função :func:`CellFunction` é responsável por transformar em uma Expression,
+sendo utilizada como uma função no FENICS para resolver o sistema variacional, ou seja transformamos um vetor em uma função. :: 
+
+    "Definição da resposta Gamma0"
+    #GammaCircle cria a gamma nos elementos e retorna um vetor
+    ValuesCells0=GammaCircle(mesh_direct,3.0,1.0,0.50, 0.25, 0.25); #malha, cond_interna, cond_externa, raio, certerx, cerntery
+    gamma0=CellFunction(mesh_direct, values=ValuesCells0);          #Pega o vetor e transforma em uma função
+
+A seguir a solução reconstruida no espaço DG. ::
+
+    "Plot"
+    V_DG=FiniteElement('DG',mesh_direct.ufl_cell(),0)
+    gamma_direct=plot_figure(mesh_direct, V_DG, gamma0, name="");
+
+
+.. image:: gamma.png
+   :scale: 75 %
+
+
+Foward Problem
+***************
+
+Dado as definições anteriores, já é possível seguir para o problema direto. Basta definir o espaço de funções utilizadas, aqui usamos polinômios de lagrange (CG) de primeira
+ordem, número de experimentos (l), a impedancia dos eletrodos (z) e as correntes utilizadas (I_all).::
+
+    "Foward Problem"
+    #Definições básicas
+    VD=FiniteElement('CG',mesh_direct.ufl_cell(),1) #Espaço da solução
+    l=int(L)                                        #Numero de experimentos
+    z=np.ones(L)*0.025                         #Impedancia de cada eletrodo
+    I_all=current_method(L,l, method=1)             #Geração das correntes   
+
+A função :func:`current_method` retorna uma array de arrays contendo os valores das correntes nos eletrodos.
+Existem outras correntes e elas podem ser verificadas na documentação. Caso queira outro tipo de corrente para o experimento,
+basta obedecer o mesmo padrão na hora de fornecer as correntes. Se for só um experimento, só é necessário fornecer uma array simples.::
+
+    print(I_all)
+
+    >>[array([ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  0.,  0.,  0.,  0., 0.,  0.,  0.]),
+       array([ 0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  0.,  0.,  0., 0.,  0.,  0.]),
+       array([ 0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  0.,  0., 0.,  0.,  0.]),
+       array([ 0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  0., 0.,  0.,  0.]),
+       array([ 0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1., 0.,  0.,  0.]),
+       array([ 0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0., 1.,  0.,  0.]),
+       array([ 0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,  0.,  0., 0., -1.,  0.]),
+       array([ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,  0.,  0., 0.,  0., -1.]),
+       array([-1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0.,  0., 0.,  0.,  0.]),
+       array([ 0., -1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  0., 0.,  0.,  0.]),
+       array([ 0.,  0., -1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0., 0.,  0.,  0.]),
+       array([ 0.,  0.,  0., -1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.,  0., 0.,  0.,  0.]),
+       array([ 0.,  0.,  0.,  0., -1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1., 0.,  0.,  0.]),
+       array([ 0.,  0.,  0.,  0.,  0., -1.,  0.,  0.,  0.,  0.,  0.,  0.,  0., 1.,  0.,  0.]),
+       array([ 0.,  0.,  0.,  0.,  0.,  0., -1.,  0.,  0.,  0.,  0.,  0.,  0., 0.,  1.,  0.]),
+       array([ 0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  0.,  0.,  0.,  0.,  0., 0.,  0.,  1.])]
+
+Já com as definições do básicas do problema direto, já é possível resolve-lo. Cria-se o objeto do problema direto
+com a classe :class:`FowardProblem` fornecendo informações como a malha, posição dos eletrodos e as impedancias.
+Após isso usa-se a função .solver_foward() para resolver o problema, usando como argumento o espaço de funções(VD), a função de conduvidade (gamma0),
+as correntes elétricas (I_all) e o número de experimentos (l). ::
+
+    #Solver
+    DirectProblem=FowardProblem(mesh_direct,  ele_pos,  z)
+    list_u0, list_U0 = DirectProblem.solve_foward(VD, gamma0, I_all, l)
+    list_U0 = DirectProblem.sol_asarray()
+
+As soluções no domínio podem ser plotadas com os comandos a seguir::
+    
+    plt.figure(figsize=(10, 10))
+    for i in range(0, l):
+        plt.subplot(4,4,i+1)
+        plot(list_u0[i])
+
+.. image:: plotu.png
+   :scale: 75 %
+
+O valor dos potenciais nos eletrodos está contido no vetor list_U0.::
+
+    print(list_U0[0:L])
+    >>>[ 1.0842557   0.32826713  0.19591977  0.13158264  0.06214628 -0.03412964
+ -0.17331413 -0.40308837 -1.18449889 -0.42369776 -0.21120216 -0.08218106
+  0.01735219  0.10789938  0.20976791  0.37492101]
+
+O problema inverso é simples de resolver quando já se possui os eletrodos, a malha, impedâncias e correntes.
+Basta fornecer um vetor contendo os valores nos eletrodos (list_U0) ao objeto :class:`InverseProblem` e chamar a função
+solve_inverse(). ::
+
+    InverseObject=InverseProblem(mesh_inverse,  ele_pos,  z, list_U0, I_all, l)
+    InverseObject.solve_inverse()
+    
+
+O resultado pode ser extraido utilizando .gamma_k no objeto. A seguir, o plot da solução.::
+    
+    gamma_k=InverseObject.gamma_k
+    V_DG=FiniteElement('DG',mesh_inverse.ufl_cell(),0)
+    plot_figure(mesh_inverse, V_DG, gamma_k, name=" "));
+
+.. image:: gamma.png
+   :scale: 75 %
+.. image:: gamma_ans.png
+   :scale: 75 %
+
+

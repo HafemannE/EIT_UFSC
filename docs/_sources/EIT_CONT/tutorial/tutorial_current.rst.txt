@@ -59,7 +59,11 @@ Method 1
             bond=plot_boundary(mesh, data=g_u, name='boundary g'+str(i))
 
 
-.. image:: current/method1.png
+.. image:: current/method1_1.png
+   :scale: 75 %
+.. image:: current/method1_2.png
+   :scale: 75 %
+.. image:: current/method1_3.png
    :scale: 75 %
   
 ::
@@ -125,7 +129,11 @@ Method 2
     Integral boundary g(0)*g(2): -7.741203511546502e-17
     Integral boundary g(1)*g(2): -4.85722573273506e-17
 
-.. image:: current/method2.png
+.. image:: current/method2_1.png
+   :scale: 75 %
+.. image:: current/method2_2.png
+   :scale: 75 %
+.. image:: current/method2_3.png
    :scale: 75 %
 
 Example 1
@@ -157,7 +165,7 @@ Example 2
     g_u2=getBoundaryVertex(mesh, g_u)
     bond=plot_boundary(mesh, data=g_u2, name='boundary g'+str(i))
 
-.. image:: current/example2.png
+.. image:: current/example2_1.png
    :scale: 75 %
 
 ::
@@ -182,6 +190,8 @@ Example 3
         g_u2=getBoundaryVertex(mesh, g_u)
         bond=plot_boundary(mesh, data=g_u2, name='boundary g'+str(i))
 
-.. image:: current/example3.png
+.. image:: current/example3_1.png
+   :scale: 75 %
+.. image:: current/example3_2.png
    :scale: 75 %
 

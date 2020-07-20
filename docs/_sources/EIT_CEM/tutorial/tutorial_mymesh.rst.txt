@@ -4,26 +4,15 @@ Creating mesh and electrodes.
 =========================================
 
 
-This demo is implemented in a single Python file.
+This demo is implemented in a single Python file. :download:`tutorial_mesh.ipynb`
 
 This demo illustrates how to:
 
 * Create mesh based in eletrodes
 * Use :func:`MyMesh` with :class:`electrodes_position`::
 
-    #Auxiliar modules
-    from dolfin import*
-    from mshr import*
-    import numpy as np
-    from fenics import*
-    import matplotlib.pyplot as plt
-
-
-    #My modules
-    from module1_mesh import *
-    from module2_foward import *
-    from module3_inverse import *
-    from module4_auxiliar import *
+    from EIT_CEM_app import *
+    %matplotlib inline
 
 **********************
 My first mesh!
@@ -114,7 +103,7 @@ n_out=[2,10,2,10] the number of vertex will be different in each selected gap an
 .. warning::
    Watch out for the number of vertices added to the gaps or electrodes.::
 
-    mesh2=MyMesh(r=1, n=10, n_in=30, n_out=[2,3,2,3], electrodes_obj=ele_pos2)
+    mesh2=MyMesh(r=1, n=10, n_in=30, n_out=[1,1,1,1], electrodes_obj=ele_pos2)
 
     "Plot"
     plt.figure(figsize=(8, 8))

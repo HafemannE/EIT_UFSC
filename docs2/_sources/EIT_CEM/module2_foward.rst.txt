@@ -1,0 +1,11 @@
+=========================================
+Module 2 - Foward
+=========================================
+
+.. automodule:: module2_foward
+.. autofunction:: current_method
+.. autofunction:: GammaCircle
+.. autoclass:: CellFunction
+   :members:
+.. autoclass:: FowardProblem
+   :members: solve_foward, sol_asarray, add_noise, verify_solution_graphs, verify_solution_values

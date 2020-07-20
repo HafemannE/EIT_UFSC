@@ -54,7 +54,7 @@ We can define a routine basead in SubDomain class to refine only the boundary of
             return on_boundary
 
     #Creating mark object.
-    cell_mark_ref=MeshFunction("bool", mesh_square, mesh.topology().dim()-1)
+    cell_mark_ref=MeshFunction("bool", mesh_square, mesh_square.topology().dim()-1)
     cell_mark_ref.set_all(False)
     boundary().mark(cell_mark_ref, True)
 
@@ -94,12 +94,10 @@ Defining mesh - points
 
 ::
 
-    #Marking boundary cells to refine
-    cell_mark_ref=MeshFunction("bool", mesh_points, mesh.topology().dim()-1)
+    cell_mark_ref=MeshFunction("bool", mesh_points, mesh_points.topology().dim()-1)
     cell_mark_ref.set_all(False)
     boundary().mark(cell_mark_ref, True)
-    
-    #refining
+
     mesh_points_refined=refine(mesh_points,cell_mark_ref)
 
 ::
