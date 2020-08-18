@@ -50,6 +50,8 @@ Defining Current
 
 .. image:: foward/boundaryg.png
    :scale: 75 %
+.. image:: foward/boundaryg2.png
+   :scale: 75 %
 
 
 Verifing hypothesis
@@ -172,10 +174,16 @@ Noise
 
 ::
 
-    "Plot"
+    "Noise Parameters"
+    noise_level=0.01
+    noise_type='uniform'
+    seed=1
+    u0_boundary=FowardObject.add_noise(noise_level, noise_type, seed, mesh_inverse)
     end=len(u0_boundary)
+
+    index=0
     if noise_level>1E-5:
-        u0_boundary_c=F_Problem.boundary_array(mesh_inverse, concatenate=False) #Data without noise
+        u0_boundary_c=FowardObject.boundary_array(mesh_inverse, concatenate=False) #Data without noise
         u_dados_noise=u0_boundary[0:int(end/n_g)] # First experiment
         data_u0=plot_boundary(mesh_inverse, data=u0_boundary_c[index], name='boundary u0_0', line=0, plot=False)
         data_u0_noise=plot_boundary(mesh_inverse, data=u_dados_noise, name='boundary u0_0', line=0, plot=False)
@@ -191,6 +199,7 @@ Noise
         plt.legend()
 
         plt.show()
+    
         
 .. image:: foward/noise.png
    :scale: 75 %

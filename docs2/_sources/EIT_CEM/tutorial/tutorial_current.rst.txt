@@ -12,19 +12,8 @@ This demo illustrates how to:
 
 ::
 
-    #Auxiliar modules
-    from dolfin import*
-    from mshr import*
-    import numpy as np
-    from fenics import*
-    import matplotlib.pyplot as plt
-
-
-    #My modules
-    from module1_mesh import *
-    from module2_foward import *
-    from module3_inverse import *
-    from module4_auxiliar import *
+    from EIT_CEM_app import *
+    %matplotlib inline
 
 
 Mesh

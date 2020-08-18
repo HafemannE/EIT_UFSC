@@ -188,19 +188,8 @@
 <ul class="simple">
 <li><p>Define currents in the electrodes.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Auxiliar modules</span>
-<span class="kn">from</span> <span class="nn">dolfin</span> <span class="kn">import</span><span class="o">*</span>
-<span class="kn">from</span> <span class="nn">mshr</span> <span class="kn">import</span><span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">fenics</span> <span class="kn">import</span><span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-
-<span class="c1">#My modules</span>
-<span class="kn">from</span> <span class="nn">module1_mesh</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">module2_foward</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">module3_inverse</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">module4_auxiliar</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">EIT_CEM_app</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 </pre></div>
 </div>
 <div class="section" id="mesh">
@@ -211,7 +200,7 @@
   <span class="n">plot</span><span class="p">(</span><span class="n">mesh_direct</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/mesh2.png"><img alt="../../_images/mesh2.png" src="../../_images/mesh2.png" style="width: 250.5px; height: 229.5px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mesh2.png"><img alt="../../_images/mesh2.png" src="../../_images/mesh2.png" style="width: 201.75px; height: 186.0px;" /></a>
 </div>
 <div class="section" id="defining-gamma-function">
 <h2>Defining Gamma function<a class="headerlink" href="#defining-gamma-function" title="Permalink to this headline">¶</a></h2>
@@ -224,7 +213,7 @@
 <span class="n">gamma_direct</span><span class="o">=</span><span class="n">plot_figure</span><span class="p">(</span><span class="n">mesh_direct</span><span class="p">,</span> <span class="n">V_DG</span><span class="p">,</span> <span class="n">gamma0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Gamma&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/gamma6.png"><img alt="../../_images/gamma6.png" src="../../_images/gamma6.png" style="width: 319.5px; height: 248.25px;" /></a>
+<a class="reference internal image-reference" href="../../_images/gamma6.png"><img alt="../../_images/gamma6.png" src="../../_images/gamma6.png" style="width: 244.5px; height: 198.0px;" /></a>
 </div>
 <div class="section" id="foward-problem">
 <h2>Foward Problem<a class="headerlink" href="#foward-problem" title="Permalink to this headline">¶</a></h2>
@@ -260,7 +249,7 @@
     <span class="n">plot</span><span class="p">(</span><span class="n">list_u0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/method1.png"><img alt="../../_images/method1.png" src="../../_images/method1.png" style="width: 439.5px; height: 144.75px;" /></a>
+<a class="reference internal image-reference" href="../../_images/method1.png"><img alt="../../_images/method1.png" src="../../_images/method1.png" style="width: 343.5px; height: 114.75px;" /></a>
 </div>
 <div class="section" id="method-2">
 <h3>Method 2<a class="headerlink" href="#method-2" title="Permalink to this headline">¶</a></h3>
@@ -284,7 +273,7 @@
     <span class="n">plot</span><span class="p">(</span><span class="n">list_u0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/method2.png"><img alt="../../_images/method2.png" src="../../_images/method2.png" style="width: 561.75px; height: 290.25px;" /></a>
+<a class="reference internal image-reference" href="../../_images/method2.png"><img alt="../../_images/method2.png" src="../../_images/method2.png" style="width: 452.25px; height: 221.25px;" /></a>
 </div>
 <div class="section" id="method-3">
 <h3>Method 3<a class="headerlink" href="#method-3" title="Permalink to this headline">¶</a></h3>
@@ -309,7 +298,7 @@
     <span class="n">plot</span><span class="p">(</span><span class="n">list_u0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/method3.png"><img alt="../../_images/method3.png" src="../../_images/method3.png" style="width: 581.25px; height: 276.75px;" /></a>
+<a class="reference internal image-reference" href="../../_images/method3.png"><img alt="../../_images/method3.png" src="../../_images/method3.png" style="width: 452.25px; height: 221.25px;" /></a>
 </div>
 <div class="section" id="method-4">
 <h3>Method 4<a class="headerlink" href="#method-4" title="Permalink to this headline">¶</a></h3>
@@ -334,7 +323,7 @@
     <span class="n">plot</span><span class="p">(</span><span class="n">list_u0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/method4.png"><img alt="../../_images/method4.png" src="../../_images/method4.png" style="width: 575.25px; height: 287.25px;" /></a>
+<a class="reference internal image-reference" href="../../_images/method4.png"><img alt="../../_images/method4.png" src="../../_images/method4.png" style="width: 452.25px; height: 221.25px;" /></a>
 </div>
 <div class="section" id="setting-diffent-values">
 <h3>Setting Diffent Values<a class="headerlink" href="#setting-diffent-values" title="Permalink to this headline">¶</a></h3>
@@ -381,7 +370,7 @@
     <span class="n">plot</span><span class="p">(</span><span class="n">list_u0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/mycurrent.png"><img alt="../../_images/mycurrent.png" src="../../_images/mycurrent.png" style="width: 441.75px; height: 163.5px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mycurrent.png"><img alt="../../_images/mycurrent.png" src="../../_images/mycurrent.png" style="width: 343.5px; height: 114.75px;" /></a>
 </div>
 </div>
 </div>
