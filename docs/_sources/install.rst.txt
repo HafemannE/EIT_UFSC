@@ -13,7 +13,7 @@ Esse software é construído a partir de algumas bibliotecas básicas.
 
 `FEniCS  <https://fenicsproject.org>`_ 
 
-Instalando em seu computador
+Desktop
 -------------------------------
 
 Antes de iniciar a utilização dos códigos é necessário a instalação das bibliotecas comentadas.
@@ -25,14 +25,14 @@ Como o subsistema Linux não possui parte visual é possível instalar Jupyter N
 
 `Jupyter  <https://jupyter.org/index.html>`_ 
 
-Sem instalações
+Online Version
 -------------------------------
 
 Caso não queira realizar a instalação de nenhuma biblioteca ou esteja só de passagem, nossos códigos também estão disponíveis no Colab da Google. Para sua utilização basta entrar no link a seguir e terá acesso a pasta contendo todos os principais arquivos.
 Ao entrar no código será solicitado a instalação do FEniCS e a importação de nossos módulos, após esse simples processo tudo já estará funcionando.
 
 
-Códigos
+Codes
 --------------------------------
 
 Os códigos ainda não estão disponíveis, por favor aguarde.

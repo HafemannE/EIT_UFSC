@@ -201,7 +201,7 @@
 <span class="n">plot</span><span class="p">(</span><span class="n">mesh_inverse</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/mesh_circle.png"><img alt="../../_images/mesh_circle.png" src="../../_images/mesh_circle.png" style="width: 474.75px; height: 223.5px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mesh_circle.png"><img alt="../../_images/mesh_circle.png" src="../../_images/mesh_circle.png" style="width: 373.5px; height: 175.5px;" /></a>
 </div>
 <div class="section" id="defining-mesh-square">
 <h2>Defining mesh - square<a class="headerlink" href="#defining-mesh-square" title="Permalink to this headline">¶</a></h2>
@@ -215,7 +215,7 @@
         <span class="k">return</span> <span class="n">on_boundary</span>
 
 <span class="c1">#Creating mark object.</span>
-<span class="n">cell_mark_ref</span><span class="o">=</span><span class="n">MeshFunction</span><span class="p">(</span><span class="s2">&quot;bool&quot;</span><span class="p">,</span> <span class="n">mesh_square</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">topology</span><span class="p">()</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cell_mark_ref</span><span class="o">=</span><span class="n">MeshFunction</span><span class="p">(</span><span class="s2">&quot;bool&quot;</span><span class="p">,</span> <span class="n">mesh_square</span><span class="p">,</span> <span class="n">mesh_square</span><span class="o">.</span><span class="n">topology</span><span class="p">()</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cell_mark_ref</span><span class="o">.</span><span class="n">set_all</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">boundary</span><span class="p">()</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="n">cell_mark_ref</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
@@ -230,7 +230,7 @@
 <span class="n">plot</span><span class="p">(</span><span class="n">mesh_square_refined</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/mesh_square.png"><img alt="../../_images/mesh_square.png" src="../../_images/mesh_square.png" style="width: 462.75px; height: 221.25px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mesh_square.png"><img alt="../../_images/mesh_square.png" src="../../_images/mesh_square.png" style="width: 362.25px; height: 175.5px;" /></a>
 </div>
 <div class="section" id="defining-mesh-points">
 <h2>Defining mesh - points<a class="headerlink" href="#defining-mesh-points" title="Permalink to this headline">¶</a></h2>
@@ -251,12 +251,10 @@
 <span class="n">mesh_points</span> <span class="o">=</span> <span class="n">generate_mesh</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Marking boundary cells to refine</span>
-<span class="n">cell_mark_ref</span><span class="o">=</span><span class="n">MeshFunction</span><span class="p">(</span><span class="s2">&quot;bool&quot;</span><span class="p">,</span> <span class="n">mesh_points</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">topology</span><span class="p">()</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cell_mark_ref</span><span class="o">=</span><span class="n">MeshFunction</span><span class="p">(</span><span class="s2">&quot;bool&quot;</span><span class="p">,</span> <span class="n">mesh_points</span><span class="p">,</span> <span class="n">mesh_points</span><span class="o">.</span><span class="n">topology</span><span class="p">()</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cell_mark_ref</span><span class="o">.</span><span class="n">set_all</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">boundary</span><span class="p">()</span><span class="o">.</span><span class="n">mark</span><span class="p">(</span><span class="n">cell_mark_ref</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="c1">#refining</span>
 <span class="n">mesh_points_refined</span><span class="o">=</span><span class="n">refine</span><span class="p">(</span><span class="n">mesh_points</span><span class="p">,</span><span class="n">cell_mark_ref</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -268,7 +266,7 @@
 <span class="n">mesh_points_refined</span><span class="o">=</span><span class="n">refine</span><span class="p">(</span><span class="n">mesh_points</span><span class="p">,</span><span class="n">cell_mark_ref</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/mesh_points.png"><img alt="../../_images/mesh_points.png" src="../../_images/mesh_points.png" style="width: 864.75px; height: 192.75px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mesh_points.png"><img alt="../../_images/mesh_points.png" src="../../_images/mesh_points.png" style="width: 690.0px; height: 144.75px;" /></a>
 </div>
 <div class="section" id="extra-tutorial">
 <h2>Extra Tutorial<a class="headerlink" href="#extra-tutorial" title="Permalink to this headline">¶</a></h2>
